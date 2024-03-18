@@ -1,4 +1,4 @@
-package migrations
+package migrate
 
 import (
 	"database/sql"
@@ -10,7 +10,6 @@ import (
 
 func MigrateConfigs(db *sql.DB, schema string) error {
 	driver, err := postgres.WithInstance(db, &postgres.Config{
-		SchemaName:      schema,
 		MigrationsTable: fmt.Sprintf("%s-migration", schema),
 	})
 	if err != nil {

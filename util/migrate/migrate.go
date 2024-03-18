@@ -19,7 +19,7 @@ func MigrateConfigs(db *sql.DB, schema string) error {
 	}
 
 	m, err := migrate.NewWithDatabaseInstance(
-		"file:///./db/migrate",
+		"file://./db/migrate",
 		"postgres", driver)
 	if err != nil {
 		return err
